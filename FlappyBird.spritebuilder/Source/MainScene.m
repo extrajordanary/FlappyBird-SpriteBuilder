@@ -107,6 +107,8 @@
         [character.physicsBody applyAngularImpulse:10000.f];
         _sinceTouch = 0.f;
         
+        NSLog(@"   %f",character.position.x);
+        
         @try
         {
             [super touchBegan:touch withEvent:event];
