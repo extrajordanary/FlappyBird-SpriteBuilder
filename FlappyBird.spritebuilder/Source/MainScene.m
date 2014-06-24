@@ -107,8 +107,6 @@
         [character.physicsBody applyAngularImpulse:10000.f];
         _sinceTouch = 0.f;
         
-        NSLog(@"   %f",character.position.x);
-        
         @try
         {
             [super touchBegan:touch withEvent:event];
@@ -207,6 +205,13 @@
     if ((_sinceTouch > 0.5f)) {
         [character.physicsBody applyAngularImpulse:-10000.f*delta];
     }
+    
+    // print where the bird is on screen
+    CGPoint flappyWorldPosition = [physicsNode convertToWorldSpace:character.position];
+    // get the screen position
+    CGPoint flappyScreenPosition = [self convertToNodeSpace:flappyWorldPosition];
+    NSLog(@"   %f",flappyScreenPosition.x);
+
     
     physicsNode.position = ccp(physicsNode.position.x - (character.physicsBody.velocity.x * delta), physicsNode.position.y);
     
