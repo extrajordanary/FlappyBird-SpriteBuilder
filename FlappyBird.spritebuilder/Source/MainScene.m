@@ -206,6 +206,8 @@
         [character.physicsBody applyAngularImpulse:-10000.f*delta];
     }
     
+    character.position = ccp(115, character.position.y);
+    
     // print where the bird is on screen
     CGPoint flappyWorldPosition = [physicsNode convertToWorldSpace:character.position];
     // get the screen position
